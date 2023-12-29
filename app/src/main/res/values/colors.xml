@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="bottomnav">#f3f6f4</color>
+    <color name="yellow">#ffd230</color>
+    <color name="pink">	#fd6bfc</color>
+    <color name="pink2">	#cf12a1</color>
+    <color name="green">	#72ba4f</color>
+    <color name="transparent">#00000000 </color>
+    <!--colors for profile-->
+    <color name="profilePrimaryDark">#FF3B30</color>
+    <color name="profileAccentColor">#F7F7F7</color>
+
+    <color name="profileBackground">#fff</color>
+    <color name="blackTextColor">#000</color>
+    <color name="backgroundcolor">#fcfdef</color>
+
+    <color name="brown">#433232</color>
+
+    <color name="youtube">#C64141</color>
+    <color name="gray">#f5f5f5</color>
+    <color name="darkGray">#3A3939</color>
+    <color name="hintTextColor">#787878</color>
+
+</resources>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/getStartedFragment">
+
+    <fragment
+        android:id="@+id/home"
+        android:name="com.beyzaterzioglu.tasty1.view.Home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_home_to_recipeDetailFragment"
+            app:destination="@id/recipeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.beyzaterzioglu.tasty1.view.Profile.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/favorities"
+        android:name="com.beyzaterzioglu.tasty1.view.Favorities.FavoritiesFragment"
+        android:label="fragment_favorities"
+        tools:layout="@layout/fragment_favorities" />
+    <fragment
+        android:id="@+id/recipeDetailFragment"
+        android:name="com.beyzaterzioglu.tasty1.view.RecipeDetail.RecipeDetailFragment"
+        android:label="fragment_recipe_detail"
+        tools:layout="@layout/fragment_recipe_detail" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.beyzaterzioglu.tasty1.view.Login.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/loginFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/getStartedFragment"
+        android:name="com.beyzaterzioglu.tasty1.view.GetStarted.GetStartedFragment"
+        android:label="fragment_get_started"
+        tools:layout="@layout/fragment_get_started" >
+        <action
+            android:id="@+id/action_getStartedFragment_to_loginFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/getStartedFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_getStartedFragment_to_home"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/getStartedFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/home" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.beyzaterzioglu.tasty1.view.Register.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
+
+</navigation>
