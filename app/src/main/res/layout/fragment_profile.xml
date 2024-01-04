@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".view.Profile.ProfileFragment"
     android:background="@color/backgroundcolor"
 
@@ -14,10 +15,8 @@
         android:id="@+id/app_bar"
         android:layout_width="match_parent"
         android:layout_height="255dp"
-
+        app:layout_constraintTop_toTopOf="parent"
         android:background="@color/yellow"
-
-
         >
 
         <com.google.android.material.imageview.ShapeableImageView
@@ -38,7 +37,6 @@
             android:layout_gravity="center_horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Beyza Terzioğlu"
             android:textColor="#fff"
             android:textStyle="bold"
             android:textSize="21sp"/>
@@ -46,9 +44,11 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
-        android:layout_width="361dp"
-        android:layout_height="247dp"
+        android:id="@+id/contentLinearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/app_bar"
         android:layout_marginTop="45dp"
         android:orientation="vertical">
 
@@ -69,7 +69,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="beyza@gmail.com"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -91,7 +90,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="+266 225 225"
                 android:textStyle="bold" />
         </LinearLayout>
 
@@ -113,30 +111,32 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingLeft="20dp"
-                android:text="beyza17"
                 android:textStyle="bold" />
         </LinearLayout>
 
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="110dp"
+        android:id="@+id/updateUser"
+        app:layout_constraintTop_toBottomOf="@+id/contentLinearLayout"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:orientation="horizontal"
-        android:paddingLeft="165dp"
-        >
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="35dp"
+        android:text="Güncelle"
+        android:textColor="#fff" />
 
-        <Button
-            android:layout_width="110dp"
-            android:id="@+id/updateUser"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="35dp"
-            android:text="Safe Quit"
-            android:textColor="#fff" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/buttonLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logout"
+        android:tint="@color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="12dp"/>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

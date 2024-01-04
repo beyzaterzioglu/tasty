@@ -27,6 +27,18 @@ class GetStartedFragment : Fragment(R.layout.fragment_get_started) {
         if (isStarted){
             binding.isStartedLayout.visibility = View.GONE
             binding.splashLogo.visibility = View.VISIBLE
+
+            Handler().postDelayed({
+                if (Util.auth.currentUser != null) {
+                    lifecycleScope.launchWhenResumed {
+                        findNavController().navigate(R.id.action_getStartedFragment_to_home)
+                    }
+                } else{
+                    lifecycleScope.launchWhenResumed {
+                        findNavController().navigate(R.id.action_getStartedFragment_to_loginFragment)
+                    }
+                }
+            }, 3000)
         } else {
             binding.isStartedLayout.visibility = View.VISIBLE
             binding.splashLogo.visibility = View.GONE
@@ -38,17 +50,6 @@ class GetStartedFragment : Fragment(R.layout.fragment_get_started) {
             findNavController().navigate(R.id.action_getStartedFragment_to_loginFragment)
         }
 
-        Handler().postDelayed({
-            if (Util.auth.currentUser != null) {
-                lifecycleScope.launchWhenResumed {
-                    findNavController().navigate(R.id.action_getStartedFragment_to_home)
-                }
-            } else{
-                lifecycleScope.launchWhenResumed {
-                    findNavController().navigate(R.id.action_getStartedFragment_to_loginFragment)
-                }
-            }
-        }, 3000)
     }
 
 }

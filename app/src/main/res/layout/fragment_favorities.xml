@@ -11,11 +11,12 @@
         android:id="@+id/searchLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:layout_constraintTop_toTopOf="parent">
 
         <android.widget.SearchView
             android:id="@+id/searchViewFavorities"
-
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TransparentSearchViewStyle"

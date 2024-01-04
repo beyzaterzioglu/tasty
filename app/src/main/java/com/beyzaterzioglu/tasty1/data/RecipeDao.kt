@@ -19,4 +19,8 @@ interface RecipeDao {
     @Query("Select * FROM recipes")
     fun fetchRecipes() : List<RecipeDetail>
 
+
+    @Query("Select * FROM recipes where id = :recipeId")
+    fun fetchById(recipeId : Int) : List<RecipeDetail>
+
 }

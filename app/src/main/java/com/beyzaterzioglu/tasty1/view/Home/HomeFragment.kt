@@ -8,9 +8,12 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.beyzaterzioglu.tasty1.R
 import com.beyzaterzioglu.tasty1.databinding.FragmentHomeBinding
 import com.beyzaterzioglu.tasty1.model.RecipeItem
+
 
 class HomeFragment : Fragment(R.layout.fragment_home) {
 
@@ -42,10 +45,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
         binding.foodRecycler.adapter = adapter
 
+        val dividerItemDecoration = DividerItemDecoration(
+            binding.foodRecycler.context,
+            LinearLayoutManager.VERTICAL
+        )
+        binding.foodRecycler.addItemDecoration(dividerItemDecoration)
+
         adapter.setOnItemClickListener {
             //yeni fragment Aç
             val bundle = bundleOf("id" to it.id)
-            Toast.makeText(requireContext(), it.title, Toast.LENGTH_LONG).show()
             findNavController().navigate(R.id.action_home_to_recipeDetailFragment, bundle)
         }
 

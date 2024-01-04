@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import com.beyzaterzioglu.tasty1.R
 import com.beyzaterzioglu.tasty1.util.Util
 import com.beyzaterzioglu.tasty1.databinding.FragmentProfileBinding
@@ -36,6 +37,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             updateUser()
         }
 
+        binding.buttonLogout.setOnClickListener {
+            val isLogout = Util.auth.signOut()
+            findNavController().navigate(R.id.action_profile_to_getStartedFragment)
+        }
+
         getUserInfo()
     }
 
@@ -51,11 +57,13 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                     userName = user["userName"].toString(),
                     phoneNumber = user["phoneNumber"].toString()
                 )
+                CoroutineScope(Dispatchers.Main).launch {
 
-                binding.tvUsername.text = userModel.userName
-                binding.etEmail.setText(userModel.userEmail)
-                binding.etUsername.setText(userModel.userName)
-                binding.etPhoneNumber.setText(userModel.phoneNumber)
+                    binding.tvUsername.text = userModel.userName
+                    binding.etEmail.setText(userModel.userEmail)
+                    binding.etUsername.setText(userModel.userName)
+                    binding.etPhoneNumber.setText(userModel.phoneNumber)
+                }
                 //userInfoDao.insertUsers(userModel)
             }
         }
@@ -64,9 +72,12 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun updateUser() {
         CoroutineScope(Dispatchers.IO).launch {
             if (userModel.id != ""){
-
+                userModel.userName = binding.etUsername.text.toString()
+                userModel.phoneNumber = binding.etPhoneNumber.text.toString()
                 database.collection("users").document(userModel.id).set(userModel).await()
-                Toast.makeText(requireContext(), "bilgiler güncellendi.", Toast.LENGTH_SHORT).show()
+                CoroutineScope(Dispatchers.Main).launch {
+                    Toast.makeText(requireContext(), "bilgiler güncellendi.", Toast.LENGTH_SHORT).show()
+                }
             } else {
 
                 Toast.makeText(requireContext(), "Hata", Toast.LENGTH_SHORT).show()

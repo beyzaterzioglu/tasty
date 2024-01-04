@@ -22,7 +22,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
         binding = FragmentLoginBinding.bind(view)
 
-        binding.btnSignup.setOnClickListener {
+        binding.registerButton.setOnClickListener {
             findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
         }
 
@@ -38,7 +38,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         CoroutineScope(Dispatchers.IO).launch {
             val user = Util.auth.signInWithEmailAndPassword(binding.etUserName.text.toString(), binding.etPassword.text.toString()).await()
             if (user != null) {
-                findNavController().navigate(R.id.action_loginFragment_to_home)
+                CoroutineScope(Dispatchers.Main).launch {
+
+                    findNavController().navigate(R.id.action_loginFragment_to_home)
+                }
             } else {
                 Toast.makeText(requireContext(), "Hata", Toast.LENGTH_SHORT).show()
             }

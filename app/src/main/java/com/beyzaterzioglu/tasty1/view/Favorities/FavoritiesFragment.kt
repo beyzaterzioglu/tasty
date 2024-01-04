@@ -8,6 +8,8 @@ import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.beyzaterzioglu.tasty1.R
 import com.beyzaterzioglu.tasty1.view.RecipeDetail.RecipeDetailRecyclerAdapter
@@ -37,6 +39,13 @@ private  var favoritiesList = arrayListOf<RecipeDetail>()
 
         binding.foodRecyclerFavorities.adapter = adapter
 
+
+        val dividerItemDecoration = DividerItemDecoration(
+            binding.foodRecyclerFavorities.context,
+            LinearLayoutManager.VERTICAL
+        )
+        binding.foodRecyclerFavorities.addItemDecoration(dividerItemDecoration)
+
         viewModel.favoritiesList.observe(viewLifecycleOwner){
             adapter.recipes = it
             favoritiesList.addAll(it)
@@ -44,9 +53,9 @@ private  var favoritiesList = arrayListOf<RecipeDetail>()
 
         adapter.setOnItemClickListener {
             //yeni fragment Aç
-            val bundle = bundleOf("id" to it.id)
+            val bundle = bundleOf("id" to it.id, "isFav" to true)
             Toast.makeText(requireContext(), it.title, Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.action_home_to_recipeDetailFragment, bundle)
+            findNavController().navigate(R.id.action_favorities_to_recipeDetailFragment, bundle)
         }
 
 

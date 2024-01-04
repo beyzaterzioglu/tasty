@@ -52,7 +52,7 @@ class RecipeRecyclerAdapter(
 
         fun bind(recipe : RecipeItem, context : Context, onClickListener : ((RecipeItem) -> Unit)){
 
-            recipeItemBinding.foodTitle.text = recipe.title + recipe.id
+            recipeItemBinding.foodTitle.text = recipe.title
 
 
             recipeItemBinding.mainLayout.setOnClickListener {
