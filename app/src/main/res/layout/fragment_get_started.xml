@@ -1,45 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ilkekran">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="183dp"
-        android:layout_marginEnd="61dp"
-
-        android:text="Hello Tasty User!"
-        android:textSize="35dp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="235dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
+    <RelativeLayout
+        android:id="@+id/isStartedLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@drawable/ilkekran">
 
 
-        android:layout_centerVertical="true"
-        android:layout_marginStart="69dp"
-        android:layout_marginTop="297dp"
-        android:layout_marginEnd="0dp"
-        android:text="Welcome to our delicious world! Explore easy and tasty recipes with the Tasty app. Click the Get Started button to begin your cooking journey. Enjoy your meal! 🍳🌟"
-        android:textSize="25dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="183dp"
+            android:layout_marginEnd="61dp"
 
-    <Button
-        android:id="@+id/btnGetStarted"
-        android:layout_width="143dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="65dp"
-        android:text="Get Started" />
+            android:text="Hello Tasty User!"
+            android:textSize="35dp"
+            android:textStyle="bold" />
 
-</RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="235dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+
+
+            android:layout_centerVertical="true"
+            android:layout_marginStart="69dp"
+            android:layout_marginTop="297dp"
+            android:layout_marginEnd="0dp"
+            android:text="Welcome to our delicious world! Explore easy and tasty recipes with the Tasty app. Click the Get Started button to begin your cooking journey. Enjoy your meal! 🍳🌟"
+            android:textSize="25dp" />
+
+        <Button
+            android:id="@+id/btnGetStarted"
+            android:layout_width="143dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginEnd="108dp"
+            android:layout_marginBottom="65dp"
+            android:text="Get Started" />
+    </RelativeLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/splashLogo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/backgorund">
+
+        <ImageView
+            android:id="@+id/appLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
